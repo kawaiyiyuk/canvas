@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #myCanvas {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="150" height="150"></canvas>
+</body>
+<script>
+    let context = document.getElementById('myCanvas');
+    let ctx = context.getContext('2d');
+    ctx.beginPath(); //声明一个起始位置
+    ctx.moveTo(75,50); //移动笔尖到指定位置
+    ctx.lineTo(75,100);
+    ctx.lineTo(50,75);
+    ctx.fill();
+
+</script>
+</html>

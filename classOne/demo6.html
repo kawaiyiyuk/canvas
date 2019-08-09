@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>抽取的圆角方法</title>
+    <style>
+        #myCanvas {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300"></canvas>
+</body>
+<script>
+    let myPi = Math.PI
+    let context = document.getElementById('myCanvas');
+    let ctx = context.getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(12,12+15);
+    ctx.lineTo(12,12+150-15);
+    ctx.quadraticCurveTo(12,12+150,12+15,12+150);
+    ctx.lineTo(12+150-15,12+150);
+    ctx.quadraticCurveTo(12+150,12+150,12+150,12+150-15);
+    ctx.lineTo(12+150,12+15);
+    ctx.quadraticCurveTo(12+150,12,12+150-12,12);
+    ctx.lineTo(12+15,12);
+    ctx.quadraticCurveTo(12,12,12,12+15);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(25,25+15);
+    ctx.lineTo(25,25+120-15);
+    ctx.quadraticCurveTo(25,25+120,25+15,25+120);
+    ctx.lineTo()
+    ctx.stroke();
+    // roundedRect(ctx,12,12,150,150,15);
+    // roundedRect(ctx,19,19,150,150,9);
+    // roundedRect(ctx,53,53,49,33,10);
+    // roundedRect(ctx,53,119,49,16,6);
+    // roundedRect(ctx,135,53,49,33,10);
+    // roundedRect(ctx,135,119,25,49,10);
+
+
+    function roundedRect(ctx,x,y,width,height,radius){
+        ctx.beginPath();
+        ctx.moveTo(x,y+radius);
+        ctx.lineTo(x,y+height-radius);
+        ctx.quadraticCurveTo(x,y+height,x+radius,y+height);
+        ctx.lineTo(x+width-radius,y+height);
+        ctx.quadraticCurveTo(x+width,y+height,x+width,y+height-radius);
+        ctx.lineTo(x+width,y+radius);
+        ctx.quadraticCurveTo(x+width,y,x+width-radius,y);
+        ctx.lineTo(x+radius,y);
+        ctx.quadraticCurveTo(x,y,x,y+radius);
+        ctx.stroke();
+    }
+</script>
+</html>

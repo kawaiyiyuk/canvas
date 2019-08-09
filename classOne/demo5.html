@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>arcTo</title>
+    <style>
+        #myCanvas {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="150" height="150"></canvas>
+</body>
+<script>
+    /**
+     *
+     * 1.起点与第一个控制点连接成一条直线。
+     2.第一个控制点与第二个控制点连接成一条直线。
+     3.那么通过这两条直线与圆的半径可以绘制一个与直线相切的圆弧。
+     4.起点与圆弧连接起来，就是最终绘制的图案
+     *
+     * */
+    let myPi = Math.PI
+    let context = document.getElementById('myCanvas');
+    let ctx = context.getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(20, 40);
+    ctx.arcTo(20, 120, 120, 120, 20);
+    ctx.lineTo(110, 120);
+    // ctx.beginPath();
+    ctx.arcTo(130, 120, 130, 20, 20);
+    ctx.lineTo(130, 40);
+    ctx.arcTo(130, 20, 20, 20, 20);
+    ctx.lineTo(40, 20);
+    ctx.arcTo(20, 20, 20, 40, 20);
+    ctx.stroke();
+</script>
+</html>
