@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #myCanvas {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="150" height="150"></canvas>
+</body>
+<script>
+    let context = document.getElementById('myCanvas')
+    let ctx = context.getContext('2d');
+    ctx.fillRect(25,25,100,100);
+    ctx.clearRect(45,45,60,60);
+    ctx.strokeRect(50,50,50,50);
+
+</script>
+</html>
