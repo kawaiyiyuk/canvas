@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transparency</title>
+    <style>
+        #myCanvas {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="150" height="150"></canvas>
+<canvas id="myCanvas2" width="150" height="150"></canvas>
+</body>
+<script>
+    function draw () {
+        let canvas = document.getElementById('myCanvas');
+        if(canvas.getContext) {
+            let ctx = canvas.getContext('2d');
+            //画背景
+            ctx.fillStyle = '#FD0';
+            ctx.fillRect(0,0,75,75);
+            ctx.fillStyle = '#6C0';;
+            ctx.fillRect(75,0,75,75)
+            ctx.fillStyle = '#09F';
+            ctx.fillRect(0,75,75,75);
+            ctx.fillStyle = '#F30';
+            ctx.fillRect(75,75,75,75);
+            ctx.fillStyle = "#fff";
+            //设置透明度
+            ctx.globalAlpha = 0.2;
+            //画半透明圆
+            for(var i=0 ;i<7; i++) {
+                ctx.beginPath();
+                ctx.arc(75,75,10+10*i,0,Math.PI*2,true);
+                ctx.fill();
+            }
+
+        }
+    }
+    draw()
+
+    function draw2() {
+        let canvas = document.getElementById('myCanvas2');
+        if(canvas.getContext){
+            let ctx = canvas.getContext('2d');
+            //画背景
+            ctx.fillStyle = 'rgb(255,221,0)';
+            ctx.fillRect(0,0,150,37.5);
+            ctx.fillStyle = 'rgb(102,204,0)';
+            ctx.fillRect(0,37.5,150,37.5);
+            ctx.fillStyle = 'rgb(0,153,255)';
+            ctx.fillRect(0,75,150,37.5)
+            ctx.fillStyle = 'rgb(255,51,0)';
+            ctx.fillRect(0,112.5,150,40);
+
+
+            //画半透明矩形
+
+            for (let i=0;i<10; i++) {
+                ctx.fillStyle = 'rgba(255,255,255,'+ (i+1)/10 +')'; //0.1-1.0
+                // ctx.fillRect(5,5+i*37.5,14,27.5)
+                //如果算法，一次性无法写出 可以先算横排或者竖排 再一起算
+                for (let j=0;j<4;j++) {
+                    ctx.fillRect(5+14*i,5+j*37.5,14,27.5)
+                }
+            }
+        }
+    }
+    draw2()
+</script>
+</html>

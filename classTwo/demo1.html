@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fillStyle </title>
+    <style>
+        #myCanvas {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300"></canvas>
+</body>
+<script>
+
+    function draw () {
+        let canvas = document.getElementById('myCanvas');
+        if(canvas.getContext) {
+            let ctx = canvas.getContext('2d');
+            for (let i =0 ;i<6;i++){
+                for (let j=0;j<6;j++) {
+                    ctx.fillStyle = 'rgb(' + Math.floor(255-42.5*i)+ ','+ Math.floor(255-42.5*j)+ ',0)';
+                    ctx.fillRect(j*25,i*25,25,25)
+                }
+            }
+
+        }
+    }
+    draw();
+
+</script>
+</html>

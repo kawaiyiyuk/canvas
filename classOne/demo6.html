@@ -23,7 +23,20 @@
     roundedRect(ctx,12,12,200,200,15);
     roundedRect(ctx,18,18,188,188,15);
     roundedRect(ctx,50,50,80,40,10);
-    roundedRect(ctx,50,100,80,20,10);
+    roundedRect(ctx,50,120,80,20,10);
+
+    ctx.beginPath();
+    ctx.arc(37,37,13,myPi/7,-myPi/7,false);
+    ctx.lineTo(31,37);
+    ctx.fill();
+
+    for (var i=0;i<8;i++) {
+        ctx.fillRect(51+i*16,35,4,4)
+    }
+
+    for(var i=0; i<8; i++) {
+        ctx.fillRect(51+i*16,105,4,4)
+    }
     // ctx.beginPath();
     // ctx.moveTo(12,12+15);
     // ctx.lineTo(12,12+200-15);
