@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>strokeStyle</title>
+    <style>
+        #myCanvas {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300"></canvas>
+</body>
+<script>
+
+    function draw () {
+        let canvas = document.getElementById('myCanvas');
+        if(canvas.getContext) {
+            let ctx = canvas.getContext('2d');
+            for (let i=0;i<6;i++) {
+                for (let j=0;j<6;j++) {
+                    ctx.strokeStyle = 'rgb(0,'+ Math.floor(255-42.5*i)+','+Math.floor(255-42.5*j) + ')';
+                    ctx.beginPath();
+                    ctx.arc(12.5+j*25,12.5+i*25,10,0,Math.PI*2,true);
+                    ctx.stroke();
+                }
+            }
+
+        }
+    }
+    draw();
+
+</script>
+</html>
