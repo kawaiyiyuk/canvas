@@ -109,6 +109,43 @@ let draw = class {
         ctx.fillStyle = radgrad4;
         ctx.fillRect(0,0,150,150)
     }
+
+    //图片
+    imgDraw () {
+        let canvas = document.getElementById('myCanvas5');
+        let ctx = canvas.getContext('2d');
+
+        let img = new Image();
+        img.src = 'https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
+        img.onload = function () {
+            //创建图案
+            let ptrn = ctx.createPattern(img,'repeat');
+            ctx.fillStyle = ptrn;
+            ctx.fillRect(0,0,150,150)
+        }
+    }
+    //文字阴影
+    textDraw () {
+        let canvas = document.getElementById('myCanvas6');
+        let ctx = canvas.getContext('2d');
+        ctx.shadowOffsetX = 4;
+        ctx.shadowOffsetY = 4;
+        ctx.shadowBlur = 2;
+        ctx.shadowColor = 'rgba(0,0,0,0.5)';
+        ctx.font = '20px Times New Roman';
+        ctx.fillStyle = "black";
+        ctx.fillText('Sample String',5,30);
+    }
+    //填充规则
+    fillDraw () {
+        let canvas = document.getElementById('myCanvas7');
+        let ctx = canvas.getContext('2d');
+
+        ctx.beginPath();
+        ctx.arc(50,50,30,0,Math.PI*2,true);
+        ctx.arc(50,50,15,0,Math.PI*2,true);
+        ctx.fill('evenodd');
+    }
 }
 
 let ctxLineWidth = new draw();
@@ -116,4 +153,7 @@ ctxLineWidth.lineWidth();
 ctxLineWidth.lineCap();
 ctxLineWidth.lineJoin();
 // ctxLineWidth.LineDash()
-ctxLineWidth.gradients()
+ctxLineWidth.gradients();
+ctxLineWidth.imgDraw();
+ctxLineWidth.textDraw();
+ctxLineWidth.fillDraw();
