@@ -108,7 +108,6 @@ let draw = class {
         ctx.fillRect(0,0,150,150);
         ctx.fillStyle = radgrad4;
         ctx.fillRect(0,0,150,150)
-
     }
 }
 
